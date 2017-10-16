@@ -45,6 +45,7 @@ import com.sojson.core.shiro.token.manager.TokenManager;
 public class KickoutSessionFilter extends AccessControlFilter {
 	//静态注入
 	static String kickoutUrl;
+	
 	//在线用户
 	final static String ONLINE_USER = KickoutSessionFilter.class.getCanonicalName()+ "_online_user";
 	//踢出状态，true标示踢出
@@ -163,13 +164,11 @@ public class KickoutSessionFilter extends AccessControlFilter {
 		KickoutSessionFilter.shiroSessionRepository = shiroSessionRepository;
 	}
 
-	public static String getKickoutUrl() {
+	public  String getKickoutUrl() {
 		return kickoutUrl;
 	}
 
-	public static void setKickoutUrl(String kickoutUrl) {
+	public  void setKickoutUrl(String kickoutUrl) {
 		KickoutSessionFilter.kickoutUrl = kickoutUrl;
 	}
-	
-	
 }

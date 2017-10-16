@@ -92,9 +92,11 @@
 	    <property name="arguments" ref="securityManager"/>
 	</bean>
 	<!-- session 校验单个用户是否多次登录 -->
-	<bean id="kickoutSessionFilter"   class="com.sojson.core.shiro.filter.KickoutSessionFilter">  
+	<bean id="kickoutSessionFilter"   class="com.sojson.core.shiro.filter.KickoutSessionFilter">
 	    <property name="kickoutUrl" value="/u/login.shtml?kickout"/>  
-	</bean>  
+	</bean>
+	
+	  
 	<!-- 静态注入 jedisShiroSessionRepository-->
 	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 	    <property name="staticMethod" value="com.sojson.core.shiro.filter.KickoutSessionFilter.setShiroSessionRepository"/>

@@ -14,7 +14,10 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ImportResource;
 
 import com.sojson.common.utils.LoggerUtils;
 import com.sojson.common.utils.StringUtils;
@@ -31,6 +34,15 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	final static String DEFAULT_SQL_ID = "findAll";
 	/**默认的查询Count sql id**/
 	final static String DEFAULT_COUNT_SQL_ID = "findCount";
+	
+	
+	
+	
+	@Override
+	@Autowired
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		super.setSqlSessionFactory(sqlSessionFactory);
+	}
 	public BaseMybatisDao() {
 		try {
 			Object genericClz = getClass().getGenericSuperclass();
